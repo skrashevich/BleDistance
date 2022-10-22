@@ -65,7 +65,7 @@ class BeaconTracker {
     void update(int r, int p) {
       now = esp_timer_get_time();
       rssi = r;
-      dist_buf.insert(dist_buf.begin(), 3.281 * pow(10.0, (p-r)/(10.0 * PATH_LOSS)));
+      dist_buf.insert(dist_buf.begin(), pow(10.0, (p-r)/(10.0 * PATH_LOSS)));
       time_buf.insert(time_buf.begin(), now);
       validate();
       auto temp = dist_buf;
