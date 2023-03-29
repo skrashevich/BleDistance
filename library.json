@@ -1,0 +1,32 @@
+{
+    "name": "esphome-ble-dist",
+    "version": "0.1.0",
+    "description": "A custom ESPHome component for tracking BLE beacons and calculating their distance",
+    "keywords": "esphome, ble, beacon, distance, tracking",
+    "author": {
+      "name": "skrashevich"
+    },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/skrashevich/BleDistance"
+    },
+    "headers": ["beacon_tracker.h", "one_euro_filter.h"],
+    "dependencies": {
+        "esp32_ble_tracker": "*",
+        "esp_log": "*"
+    },
+    "build": {
+      "flags": [
+        "-DUSE_BLE_DIST",
+        "-DBLE_DIST_SUPPORT_ESP32_BLE_TRACKER",
+        "-Iinclude"
+
+      ],
+      "srcFilter": ["-<*>", "+<include>", "+<src>"],
+      "includeDir": ".",
+      "srcDir": "."
+    },
+    "frameworks": "*",
+    "platforms": "*"
+  }
+  
